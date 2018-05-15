@@ -1,0 +1,16 @@
+{
+  "name": "flappy-bird",
+  "version": "1.0.0",
+  "description": "This is a flappy bird clone made with pure JS and canvas.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "reload -b -p 8777"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "reload": "^1.0.1"
+  }
+}
