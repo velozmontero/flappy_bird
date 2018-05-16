@@ -5,6 +5,7 @@ const Pipe = function(xpos, ypos, length, speed, ctx){
   this.ctx = ctx;
   this.speed = speed;
   this.width = 150;
+  this.passed = false;
 };
 
 Pipe.prototype.update = function(){
@@ -20,5 +21,4 @@ Pipe.prototype.render = function(){
   
   this.ctx.fillRect(this.xpos+5, this.ypos+5, this.width-10, this.length-10);
   this.ctx.restore();
-  // this.ctx.fillStyle = "#FFFFFF";
 };

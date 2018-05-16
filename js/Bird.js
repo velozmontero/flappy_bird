@@ -1,6 +1,7 @@
-const Bird = function(x, y, ctx){
+const Bird = function(x, y, ctx, c){
   this.x = x;
   this.y = y;
+  this.c = c;
   this.ctx = ctx;
   this.velY = 0;
   this.width = 90;
@@ -26,7 +27,7 @@ const Bird = function(x, y, ctx){
 Bird.prototype.update = function(pipes){
   this.y += this.velY;
   this.velY += 1.25;
-  
+
   if (this.detectCollisions(pipes)){
     this.dead = true;
   }
@@ -42,6 +43,7 @@ Bird.prototype.render = function(){
   let renderX = - this.width/2;
   let renderY = - this.height/2;
   this.ctx.save();
+  
   this.ctx.translate(this.x, this.y);
   let angle = Math.PI/6 * this.velY/16;
   this.ctx.rotate(angle);
@@ -51,6 +53,10 @@ Bird.prototype.render = function(){
 };
 
 Bird.prototype.detectCollisions = function(pipes){
+  if(this.y > this.c.height) {
+    return true;
+  }
+
   for(var i = 0; i < pipes.length; i++){
     let e = pipes[i];
     let highPipe = e.ypos <= 0;
