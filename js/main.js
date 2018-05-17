@@ -1,5 +1,7 @@
 
-window.onload = function(){
+window.onload = initialize;
+
+function initialize(){
   const c = document.getElementById('canvas');
   c.width = window.innerWidth;
   c.height = window.innerHeight;
@@ -69,5 +71,24 @@ function generateRandomPipes(ctx, canvasWidth, canvasHeight){
 function drawGameOver(ctx, c){
   ctx.font="30px Verdana";
   ctx.textAlign="center";
-  ctx.fillText("Game Over!!", c.width/2 , c.height/2);
+  ctx.fillText("Game Over!!", c.width/2 , c.height/2 - 50);
+
+  let btn = document.createElement('button');
+  btn.style.width = '100px';
+  btn.style.height = '40px';
+  btn.style.position = 'fixed';
+  btn.style.margin = 'auto';
+  btn.style.top = 0;
+  btn.style.right = 0;
+  btn.style.bottom = 0;
+  btn.style.left = 0;
+  btn.style.zIndex = 10;
+  btn.innerHTML = 'RESTART GAME';
+
+  btn.onclick = function() {
+    initialize();
+    btn.remove();
+  }
+
+  document.body.appendChild(btn);
 }
